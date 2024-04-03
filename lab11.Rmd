@@ -1,0 +1,192 @@
+---
+title: "Stats 306: Lab 11"
+author: "Your Name"
+output: 
+  learnr::tutorial:
+    progressive: true
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)     # For interactive exercises
+library(dplyr)
+library(ggplot2)
+
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Github basics
+
+Those who already have a GitHub account can go ahead, log in and skip the rest of the below steps.
+
+1.  Head over to [GitHub](https://github.com/) and click on the "Sign up" button to create an account.
+
+2.  Note: if you use your @umich.edu account, you should be eligible for [GitHub Student Developer Pack](https://education.github.com/pack).
+    giving you access to a ton of stuff, including a Github Pro account while you're a student.
+
+    For those who already have an account, you can still activate the pack as long as you add your `.edu` email to the emails (not covered here).
+
+Github is a hosting service for git repositories.
+While it has many functionalities, the most important distinction is perhaps between *public* and *privat*e repositories, where the former can be seen by anyone, and the latter can be accessed only by the owner and hand-picked *collaborators*.
+
+# Creating and using SSH keys
+
+An [SSH key](https://en.wikipedia.org/wiki/Ssh-keygen) authenticates *you* with Github so you (and *only you*) can push from your devices.
+
+Detailed instructions [here.](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account?platform=linux){.uri}
+
+## Creating the keys:
+
+1.  Open the `Terminal` on your Posit Cloud
+
+2.  Paste the following, **after replacing your email in the text**, and hit enter
+
+    ```         
+    ssh-keygen -t ed25519 -C "your_email@example.com"
+    ```
+
+3.  Press ENTER if presented with something like this:
+
+    `> Enter a file in which to save the key (/home/YOU/.ssh/id_ALGORITHM):[Press enter]`
+
+4.  Enter a password when prompted.
+    This is a password you'll need to push to GitHub from this device, so make sure you remember it.
+
+5.  Copy and paste the following command:
+
+    ```         
+    eval "$(ssh-agent -s)"
+    ```
+
+6.  Similarly: `ssh-add ~/.ssh/id_ed25519`
+
+### Registering the keys with GitHub
+
+1, Click on your profile icon on GitHub and select *Settings:*
+
+![](https://docs.github.com/assets/cb-45016/mw-1440/images/help/settings/userbar-account-settings-global-nav-update.webp){width="300"}
+
+2.  Click on `SSH and GPH keys` on the left-hand side menu
+
+3.  Click on the green `New-` or `Add SSH key` buttons
+
+4.  Under "Title", give the key a name indicating the device, such as "Posit"
+
+5.  Now go back to the terminal and enter the following command:
+
+    ```         
+    cat ~/.ssh/id_ed25519.pub
+    ```
+
+6.  Copy the output without any spaces and newlines
+
+7.  Paste it in the "Key" field and click the green "Add SSH key" button.
+
+You should be able to push (that is, "upload") files from your `posit.cloud` instance to GitHub now.
+
+# Git basics
+
+`TODO: modify & add to prev. stuff`
+
+`TODO: change editor to nano?`
+
+## What is Git?
+
+-   A **version control system** manages changes from multiple sources simultaneously.
+-   A reasonable analogy: Google Docs with track changes turned on
+-   Useful for groups working together to track changes to the software package and document why changes were made
+-   We will use it to disseminate homework assignments, labs, and lecture materials.
+
+## How does git work?
+
+-   Creates a **repository** (a hidden directory/folder) to information about the history of files
+-   When you make changes, you may **add** them to a **staging area**
+-   When you like your staging area, you **commit** your changes.
+-   Git stores the **differences** ("diffs") from the previous version to your new version.
+-   You can **push** your changes to a shared repository for others to use
+-   You can **pull** from a shared repository and **merge** the changes of others.
+-   If there are **conflicts**, git will let you know and make you resolve them.
+-   If you ever need to see what changed, you have the entire **history** of all changes to look at.
+
+## Command line interfaces
+
+While git has graphical interfaces, we will teach using a **command line interface** (CLI) for git.
+
+In an CLI you have an **interactive** prompt where you type a command.
+It might look something like this:
+
+```         
+$ command -o --options argument1 argument2
+```
+
+-   `$` is the prompt
+-   `command` is what we want to do (e.g., `git`)
+-   Optional flags have `-` or `--` in front and change behavior
+-   We can tell what do with `argument1` and `argument2`. Some commands have no arguments.
+
+## Some basic CLI commands
+
+-   `cd`: Change directory.
+-   `ls`: List files in current directory
+-   `pwd`: Print working directory
+-   `mkdir`: Make a new directory (folder)
+-   `rm -r`: Recursively delete directories and everything inside (use carefully!)
+
+## Git and the CLI
+
+When interacting with git, we will use commands like this:
+
+```         
+$ git SUBCOMMAND -o --options ARG1 ARG2 ...
+```
+
+Some example subcommands will be `pull` to get updates, `log` to see the history, `add` to stage files, and `commit` to commit changes.
+
+## Let git know who you are
+
+```         
+$ git config --global user.name "YOUR NAME"
+$ git config --global user.email "YOUR EMAIL"
+```
+
+## Getting a copy of the Stats 306 Repository
+
+Materials for this course are hosted at **GitHub**, a popular website front end for git.
+Our materials are stored in repository on github.
+
+If you want to get a copy (outside of Posit cloud) **clone** the repository:
+
+```         
+$ cd LOCATION_YOU_WANT_TO_STORE_REPO
+$ git clone https://github.com/markmfredrickson/stats306_spring_2024.git
+```
+
+## Getting future updates
+
+When we make changes to the course materials (this will be frequent! We like to tinker!), you can get updates:
+
+```         
+$ git pull
+```
+
+## Saving changes to our local repo
+
+If you have made changes to your repository, you will be prompted to commit them before pullling:
+
+```         
+$ git status
+$ git add FILENAME
+$ ... perhaps other files ...
+$ git commit -m "a note explaining changes"
+```
+
+## Graphical interface
+
+We teach the command line interface for git because
+
+-   It is convenient to show in slides
+-   It is transferable to any environment where you would use git
+-   It matches our recommended text book
+-   It exposes the full power of git
+
+<!-- But, you can also use a graphical interface in Posit Cloud -->
