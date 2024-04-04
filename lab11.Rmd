@@ -181,15 +181,13 @@ git config --global -l
 If not, the following commands will fill out those fields:
 
 ```         
-$ git config --global user.name "YOUR NAME"
-$ git config --global user.email "YOUR EMAIL"
+$ git config --global user.name "Andrej Leban"
+$ git config --global user.email "leban@umich.edu"
 ```
 
 ------------------------------------------------------------------------
 
-`TODO: exercises`
-
-### Exercise
+### Exercise - modifying this document and committing the changes
 
 Now go back and fill out your name and email **in the above command in this document (`lab11.Rmd`**).
 
@@ -201,42 +199,40 @@ First, you can go to your Git pane and view the changes you made to your local/w
 
 ![](images/clipboard-1782323653.png)
 
-This will give you a visual display of the **line-by-line** changes you made, with the additions in green and removals in red.
+This will give you a visual display of the **line-by-line** changes you made, with the additions in green and removals in red, like this:
 
-## Getting a copy of the Stats 306 Repository
+![](images/clipboard-2776243927.png)
 
-Materials for this course are hosted at **GitHub**, a popular website front end for git.
-Our materials are stored in repository on github.
-
-If you want to get a copy (outside of Posit cloud) **clone** the repository:
+In the terminal, you can get a text summary of the state of your repository with
 
 ```         
-$ cd LOCATION_YOU_WANT_TO_STORE_REPO
-$ git clone https://github.com/markmfredrickson/stats306_spring_2024.git
+git status
 ```
 
-------------------------------------------------------------------------
-
-## Getting future updates
-
-When we make changes to the course materials (this will be frequent! We like to tinker!), you can get updates:
+To commit our changes via the terminal, we first **add** the file:
 
 ```         
-$ git pull
+git add lab11.Rmd
 ```
 
-------------------------------------------------------------------------
-
-## Saving changes to our local repo
-
-If you have made changes to your repository, you will be prompted to commit them before pullling:
+The file is now in **staging**.
+Since we're OK with the changes, we can proceed with **committing**:
 
 ```         
-$ git status
-$ git add FILENAME
-$ ... perhaps other files ...
-$ git commit -m "a note explaining changes"
+git commit -m "Filled out user info"
 ```
+
+The `-m` flag provides a message to go with the commit:
+
+-   Every commit requires a message
+
+-   Especially when working with other people, **write informative, concise messages** that summarize the work done in the commit:
+
+    -   Good: "added a function that calculates the mean to script1.R, cleaned up script2.R"
+
+    -   Bad: "stuff", "WIP", "." , "asdasfagad"
+
+-   This makes it easier for people (and the future you!) to get a feel for what's going on with the repository
 
 ------------------------------------------------------------------------
 
@@ -253,4 +249,57 @@ But, you can also use a graphical interface in Posit Cloud:
 
 ![](images/clipboard-1940696391.png)
 
+You can complete the rest of this Lab either in the terminal or in the graphical interface as the two are equivalent.
+
 ------------------------------------------------------------------------
+
+## Sharing your work
+
+When other people update their versions of the repository, you can get their work from the **remote** like this:
+
+```         
+git fetch
+```
+
+first retrieves information about the changes done on the remote, but does not try to modify anything **locally.** Doing
+
+```         
+$ git pull
+```
+
+then tries to get the changes and **merge** two versions if the same file has been changed both locally and on the remote.
+
+Most of the time, git is able to resolve the merge automatically.
+However, in some cases there is a clear contradiction between the two versions, leading to a merge **conflict**.
+
+Conversely, you will be using
+
+```         
+git push
+```
+
+to push your new commits to the remote repository, so others can *pull them*.
+
+Note that the order is always `git pull`, then `git push` if there are changes both on the remote and your machine.
+
+------------------------------------------------------------------------
+
+## Exercise: merge conflict!
+
+A **branch** is a separate version of the repository, which has *branched* off from the *main* branch (the default) at some commit history.
+
+Much like when pulling remote changes when same files have been modified, **merging** branches can also lead to conflicts.
+
+We have created a separate branch on the remote that will conflict with this version
+
+Do the following in the terminal and head to the GUI to resolve the conflict:
+
+```         
+git pull origin conflict
+```
+
+------------------------------------------------------------------------
+
+## References
+
+Good additional references are [Beginning Git and GitHub](https://search.lib.umich.edu/catalog/record/99187305231206381) by Mariot Tsitoara, and for advanced use, [Pro Githttps://git-scm.com/book/en/v2](https://git-scm.com/book/en/v2) by Chacon & Straub.
