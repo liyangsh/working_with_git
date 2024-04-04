@@ -15,7 +15,9 @@ library(ggplot2)
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-# Github basics
+------------------------------------------------------------------------
+
+## Github basics
 
 Github is a hosting service for git repositories.
 While it has many functionalities, the most important distinction is perhaps between *public* and *privat*e repositories, where the former can be seen by anyone, and the latter can be accessed only by the owner and hand-picked *collaborators*.
@@ -29,13 +31,17 @@ Head over to [GitHub](https://github.com/) and click on the "Sign up" button to 
 
     For those who already have an account, you can still activate the pack as long as you add your `.edu` email to the emails (not covered here).
 
-# Creating and using SSH keys
+------------------------------------------------------------------------
+
+## Creating and using SSH keys
 
 An [SSH key](https://en.wikipedia.org/wiki/Ssh-keygen) authenticates *you* with Github so you (and *only you*) can push from your devices.
 
 Detailed instructions [here.](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account?platform=linux){.uri}
 
-## Creating the keys:
+------------------------------------------------------------------------
+
+### Creating the keys:
 
 1.  Open the `Terminal` on your Posit Cloud
 
@@ -58,7 +64,11 @@ Detailed instructions [here.](https://docs.github.com/en/authentication/connecti
     eval "$(ssh-agent -s)"
     ```
 
-6.  Similarly: `ssh-add ~/.ssh/id_ed25519`
+6.  Similarly: 
+```
+  ssh-add ~/.ssh/id_ed25519`
+```
+------------------------------------------------------------------------
 
 ### Registering the keys with GitHub
 
@@ -84,9 +94,11 @@ Detailed instructions [here.](https://docs.github.com/en/authentication/connecti
 
 You should be able to push (that is, "upload") files from your `posit.cloud` instance to GitHub now.
 
+------------------------------------------------------------------------
+
 ## Linking GitHub and `posit.cloud`
 
-<https://posit.cloud/learn/guide#github-details>
+[details](https://posit.cloud/learn/guide#github-details)
 
 You can also link your (new) GitHub account with posit.cloud if you go to `User Settings/Authentication` and enable github access:
 
@@ -94,14 +106,16 @@ You can also link your (new) GitHub account with posit.cloud if you go to `User 
 
 This will set your name and email for commit messages, among other features.
 
-# Git basics - review
+                                                                                                                                                
+------------------------------------------------------------------------
 
-## What is Git?
+## Git basics - review                                                                                                                                                                                                                                                 
+- A **version control system** manages changes from multiple sources simultaneously.
+- A reasonable analogy: Google Docs with track changes turned on 
+- Useful for groups working together to track changes to the software package and document why changes were made 
 
--   A **version control system** manages changes from multiple sources simultaneously.
--   A reasonable analogy: Google Docs with track changes turned on
--   Useful for groups working together to track changes to the software package and document why changes were made
 
+------------------------------------------------------------------------
 ## How does git work?
 
 -   Creates a **repository** (a hidden directory/folder) to information about the history of files
@@ -140,6 +154,8 @@ This will set your name and email for commit messages, among other features.
 
 -   If you ever need to see what changed, you have the entire **history** of all changes to look at.
 
+------------------------------------------------------------------------
+
 ## Command line interfaces
 
 While git has graphical interfaces, we will teach using a **command line interface** (CLI) for git.
@@ -156,6 +172,8 @@ $ command -o --options argument1 argument2
 -   Optional flags have `-` or `--` in front and change behavior
 -   We can tell what do with `argument1` and `argument2`. Some commands have no arguments.
 
+------------------------------------------------------------------------
+
 ## Some basic CLI commands
 
 -   `cd`: Change directory.
@@ -163,6 +181,8 @@ $ command -o --options argument1 argument2
 -   `pwd`: Print working directory
 -   `mkdir`: Make a new directory (folder)
 -   `rm -r`: Recursively delete directories and everything inside (use carefully!)
+
+------------------------------------------------------------------------
 
 ## Git and the CLI
 
@@ -174,12 +194,16 @@ $ git SUBCOMMAND -o --options ARG1 ARG2 ...
 
 Some example subcommands will be `pull` to get updates, `log` to see the history, `add` to stage files, and `commit` to commit changes.
 
+------------------------------------------------------------------------
+
 ## Let git know who you are
 
 ```         
 $ git config --global user.name "YOUR NAME"
 $ git config --global user.email "YOUR EMAIL"
 ```
+
+------------------------------------------------------------------------
 
 ## Getting a copy of the Stats 306 Repository
 
@@ -193,6 +217,8 @@ $ cd LOCATION_YOU_WANT_TO_STORE_REPO
 $ git clone https://github.com/markmfredrickson/stats306_spring_2024.git
 ```
 
+------------------------------------------------------------------------
+
 ## Getting future updates
 
 When we make changes to the course materials (this will be frequent! We like to tinker!), you can get updates:
@@ -200,6 +226,8 @@ When we make changes to the course materials (this will be frequent! We like to 
 ```         
 $ git pull
 ```
+
+------------------------------------------------------------------------
 
 ## Saving changes to our local repo
 
@@ -211,6 +239,8 @@ $ git add FILENAME
 $ ... perhaps other files ...
 $ git commit -m "a note explaining changes"
 ```
+
+------------------------------------------------------------------------
 
 ## Graphical interface
 
@@ -224,3 +254,5 @@ We teach the command line interface for git because
 But, you can also use a graphical interface in Posit Cloud:
 
 ![](images/clipboard-1940696391.png)
+
+------------------------------------------------------------------------
