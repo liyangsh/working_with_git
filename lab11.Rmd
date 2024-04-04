@@ -290,13 +290,39 @@ A **branch** is a separate version of the repository, which has *branched* off f
 
 Much like when pulling remote changes when same files have been modified, **merging** branches can also lead to conflicts.
 
-We have created a separate branch on the remote that will conflict with this version
+We have created a separate branch on the remote that will conflict with this version.
 
-Do the following in the terminal and head to the GUI to resolve the conflict:
+A conflict happens when the same line is edited in two separate instances.
+Run the following command to get the conflicting branch:
 
 ```         
 git pull origin conflict
 ```
+
+The file `lab11.Rmd` will now have a conflict, which will be delineated with:
+
+-   `<<<<<<<`: start of the chunk present in the current branch/version
+-   `=======`: the separator
+-   `>>>>>>>`: end of the chunk present in the other branch/version
+
+**You resolve the conflict by simply inspecting the conflicting hunks and editing the text.**
+
+**You can move things between the hunks manually, resolving the conflict as a combination of the two versions, or simply keep one of them.**
+
+There might be multiple such *hunks* in the file, so make sure to resolve all of them.
+You can find them by search the text for `<<<<`, for instance.
+
+The conflict for a single file is resolved when you:
+
+-    **Finish manually resolving all the hunks**
+
+-   **Remove the conflict markers shown above** **from the file**
+
+-   **Save the file**
+
+-    **Mark the file as resolved**: `git add lab11.Rmd` in the terminal or by clicking the appropriate button in the graphical interface.
+
+    After resolving the conflicts for all files, you finish the conflict by committing - this is called a **merge commit**.
 
 ------------------------------------------------------------------------
 
