@@ -64,10 +64,12 @@ Detailed instructions [here.](https://docs.github.com/en/authentication/connecti
     eval "$(ssh-agent -s)"
     ```
 
-6.  Similarly: 
-```
+6.  Similarly:
+
+```         
   ssh-add ~/.ssh/id_ed25519`
 ```
+
 ------------------------------------------------------------------------
 
 ### Registering the keys with GitHub
@@ -106,16 +108,17 @@ You can also link your (new) GitHub account with posit.cloud if you go to `User 
 
 This will set your name and email for commit messages, among other features.
 
-                                                                                                                                                
 ------------------------------------------------------------------------
 
-## Git basics - review                                                                                                                                                                                                                                                 
-- A **version control system** manages changes from multiple sources simultaneously.
-- A reasonable analogy: Google Docs with track changes turned on 
-- Useful for groups working together to track changes to the software package and document why changes were made 
+## Git basics - review
+
+-   A **version control system** manages changes from multiple sources simultaneously.
+-   A reasonable analogy: Google Docs with track changes turned on
+-   Useful for groups working together to track changes to the software package and document why changes were made
 
 
 ------------------------------------------------------------------------
+
 ## How does git work?
 
 -   Creates a **repository** (a hidden directory/folder) to information about the history of files
