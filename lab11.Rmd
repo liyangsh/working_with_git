@@ -17,17 +17,17 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # Github basics
 
+Github is a hosting service for git repositories.
+While it has many functionalities, the most important distinction is perhaps between *public* and *privat*e repositories, where the former can be seen by anyone, and the latter can be accessed only by the owner and hand-picked *collaborators*.
+
 Those who already have a GitHub account can go ahead, log in and skip the rest of the below steps.
 
-1.  Head over to [GitHub](https://github.com/) and click on the "Sign up" button to create an account.
+Head over to [GitHub](https://github.com/) and click on the "Sign up" button to create an account.
 
-2.  Note: if you use your @umich.edu account, you should be eligible for [GitHub Student Developer Pack](https://education.github.com/pack).
+1.  Note: if you use your @umich.edu account, you should be eligible for [GitHub Student Developer Pack](https://education.github.com/pack).
     giving you access to a ton of stuff, including a Github Pro account while you're a student.
 
     For those who already have an account, you can still activate the pack as long as you add your `.edu` email to the emails (not covered here).
-
-Github is a hosting service for git repositories.
-While it has many functionalities, the most important distinction is perhaps between *public* and *privat*e repositories, where the former can be seen by anyone, and the latter can be accessed only by the owner and hand-picked *collaborators*.
 
 # Creating and using SSH keys
 
@@ -84,28 +84,60 @@ Detailed instructions [here.](https://docs.github.com/en/authentication/connecti
 
 You should be able to push (that is, "upload") files from your `posit.cloud` instance to GitHub now.
 
-# Git basics
+## Linking GitHub and `posit.cloud`
 
-`TODO: modify & add to prev. stuff`
+<https://posit.cloud/learn/guide#github-details>
 
-`TODO: change editor to nano?`
+You can also link your (new) GitHub account with posit.cloud if you go to `User Settings/Authentication` and enable github access:
+
+![](images/clipboard-3826366170.png){width="75%"}
+
+This will set your name and email for commit messages, among other features.
+
+# Git basics - review
 
 ## What is Git?
 
 -   A **version control system** manages changes from multiple sources simultaneously.
 -   A reasonable analogy: Google Docs with track changes turned on
 -   Useful for groups working together to track changes to the software package and document why changes were made
--   We will use it to disseminate homework assignments, labs, and lecture materials.
 
 ## How does git work?
 
 -   Creates a **repository** (a hidden directory/folder) to information about the history of files
--   When you make changes, you may **add** them to a **staging area**
--   When you like your staging area, you **commit** your changes.
+
+-   In essence, files can be in three "buckets":
+
+    -   When you make changes, they are saved on the disk but not yet registered in git: this is your **working tree**
+    -   If you like the changes, you can add them (or a portion of them) to the **staging area,** i.e. the changes are **staged**
+    -   When you like your staging area, you **commit** your changes, making a **git commit**.
+
+-   Think of the three stages as a scratchpad, a submission candidate, and a submitted version of a work (homework, project, etc.)
+
+-   To illustrate, below you can see work on this lab tracked in Git as shown in a graphical git client (SourceTree).
+    The top pane is the **commit** history, showing **commited changes** accross time (upward direction).
+    The very top line shows uncommited changes, which are all the changes since the last commit.\
+
+    \
+    Below on the left, the uncommitted changes are further divided into **staged** files/changes (this document), and unstaged ones.
+
+    \
+    I we were to commit at this point, the staged changes would go "*on the record* "and show up as a new commit above.
+
+-   ![](images/clipboard-1600270911.png)
+
+-   Note that you can only
+
 -   Git stores the **differences** ("diffs") from the previous version to your new version.
+
+-   
+
 -   You can **push** your changes to a shared repository for others to use
+
 -   You can **pull** from a shared repository and **merge** the changes of others.
--   If there are **conflicts**, git will let you know and make you resolve them.
+
+-   If there are **conflicts**, git will let you know and make you resolve them (more on that later.)
+
 -   If you ever need to see what changed, you have the entire **history** of all changes to look at.
 
 ## Command line interfaces
@@ -189,4 +221,6 @@ We teach the command line interface for git because
 -   It matches our recommended text book
 -   It exposes the full power of git
 
-<!-- But, you can also use a graphical interface in Posit Cloud -->
+But, you can also use a graphical interface in Posit Cloud:
+
+![](images/clipboard-1940696391.png)
