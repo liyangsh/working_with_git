@@ -228,43 +228,69 @@ changes, making a <strong>git commit</strong>.</li>
 candidate, and a submitted version of a work (homework, project,
 etc.)</p></li>
 </ul>
-<hr />
-<ul>
-<li><p>To illustrate, below you can see work on this lab tracked in Git
-as shown in a graphical git client (SourceTree). The top pane is the
-<strong>commit</strong> history, showing <strong>commited
+<table>
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td align="left">## How does git work - illustration</td>
+</tr>
+<tr class="even">
+<td align="left">- To illustrate, below you can see work on this lab
+tracked in Git as shown in a graphical git client (SourceTree). The top
+pane is the <strong>commit</strong> history, showing <strong>commited
 changes</strong> accross time (upward direction). The very top line
 shows uncommited changes, which are all the changes since the last
-commit.</p>
-<p>Below on the left, the uncommitted changes are further divided into
-<strong>staged</strong> files/changes (this document), and unstaged
-ones.</p>
-<p>I we were to commit at this point, the staged changes would go
-“<em>on the record</em>”and show up as a new commit above.</p>
-<p><img src="images/clipboard-1600270911.png"
-style="width:75.0%" /></p></li>
-<li><p>Note that you can only share committed changes with
-others.</p></li>
-<li><p>Git stores the <strong>differences</strong> (“diffs”) from the
-previous version to your new version.</p></li>
-<li><p>You can <strong>push</strong> your changes to a shared repository
-for others to use</p></li>
-<li><p>You can <strong>pull</strong> from a shared repository and
-<strong>merge</strong> the changes of others.</p></li>
-<li><p>If there are <strong>conflicts</strong>, git will let you know
-and make you resolve them (more on that later.)</p></li>
-<li><p>If you ever need to see what changed, you have the entire
-<strong>history</strong> of all changes to look at.</p></li>
-</ul>
-<hr />
+commit.</td>
+</tr>
+<tr class="odd">
+<td align="left">Below on the left, the uncommitted changes are further
+divided into <strong>staged</strong> files/changes (this document), and
+unstaged ones.</td>
+</tr>
+<tr class="even">
+<td align="left">If we were to commit at this point, the staged changes
+would go “<em>on the record</em>”and show up as a new commit above.</td>
+</tr>
+<tr class="odd">
+<td align="left"><img src="images/clipboard-1600270911.png"
+style="width:75.0%" /></td>
+</tr>
+<tr class="even">
+<td align="left">- Note that you can only share committed changes with
+others.</td>
+</tr>
+<tr class="odd">
+<td align="left">- Git stores the <strong>differences</strong> (“diffs”)
+from the previous version to your new version.</td>
+</tr>
+<tr class="even">
+<td align="left">- You can <strong>push</strong> your changes to a
+shared repository for others to use</td>
+</tr>
+<tr class="odd">
+<td align="left">- You can <strong>pull</strong> from a shared
+repository and <strong>merge</strong> the changes of others.</td>
+</tr>
+<tr class="even">
+<td align="left">- If there are <strong>conflicts</strong>, git will let
+you know and make you resolve them (more on that later.)</td>
+</tr>
+<tr class="odd">
+<td align="left">- If you ever need to see what changed, you have the
+entire <strong>history</strong> of all changes to look at.</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="section-git-and-the-cli" class="section level2">
 <h2>Git and the CLI</h2>
 <p>When interacting with git, we will use commands like this:</p>
 <pre><code>$ git SUBCOMMAND -o --options ARG1 ARG2 ...</code></pre>
-<p>Some example subcommands will be <code>pull</code> to get updates,
-<code>log</code> to see the history, <code>add</code> to stage files,
-and <code>commit</code> to commit changes.</p>
+<p>Some example subcommands will be: - <code>pull</code> to get updates
+- <code>log</code> to see the history - <code>add</code> to stage files
+- <code>commit</code> to commit changes</p>
 <hr />
 </div>
 <div id="section-let-git-know-who-you-are" class="section level2">
@@ -275,13 +301,14 @@ author.</p>
 configured already:</p>
 <pre><code>git config --global -l</code></pre>
 <p>If not, the following commands will fill out those fields:</p>
-<pre><code>$ git config --global user.name &quot;Andrej Leban&quot;
-$ git config --global user.email &quot;leban@umich.edu&quot;</code></pre>
+<pre><code>$ git config --global user.name &quot;Your Name&quot;
+$ git config --global user.email &quot;yourumichid@umich.edu&quot;</code></pre>
 <hr />
+</div>
 <div
 id="section-exercise---modifying-this-document-and-committing-the-changes"
-class="section level3">
-<h3>Exercise - modifying this document and committing the changes</h3>
+class="section level2">
+<h2>Exercise - modifying this document and committing the changes</h2>
 <p>Now go back and fill out your name and email <strong>in the above
 command in this document (<code>lab11.Rmd</code></strong>).</p>
 <p>Then, save the document.</p>
@@ -289,11 +316,11 @@ command in this document (<code>lab11.Rmd</code></strong>).</p>
 <p>First, you can go to your Git pane and view the changes you made to
 your local/working copy by right-clicking on the file and selecting
 <em>Diff:</em></p>
-<p><img src="images/clipboard-1782323653.png" /></p>
+<p><img src="images/clipboard-1782323653.png" style="width:75.0%" /></p>
 <p>This will give you a visual display of the
 <strong>line-by-line</strong> changes you made, with the additions in
 green and removals in red, like this:</p>
-<p><img src="images/clipboard-2776243927.png" /></p>
+<p><img src="images/clipboard-2776243927.png" style="width:75.0%" /></p>
 <p>In the terminal, you can get a text summary of the state of your
 repository with</p>
 <pre><code>git status</code></pre>
@@ -320,7 +347,6 @@ feel for what’s going on with the repository</p></li>
 </ul>
 <hr />
 </div>
-</div>
 <div id="section-graphical-interface" class="section level2">
 <h2>Graphical interface</h2>
 <p>We teach the command line interface for git because</p>
@@ -331,13 +357,17 @@ feel for what’s going on with the repository</p></li>
 <li>It exposes the full power of git</li>
 </ul>
 <p>But, you can also use a graphical interface in Posit Cloud:</p>
-<p><img src="images/clipboard-1940696391.png" /></p>
-<p>You can complete the rest of this Lab either in the terminal or in
-the graphical interface as the two are equivalent.</p>
+<p><img src="images/clipboard-1940696391.png" style="width:75.0%" /></p>
+<p>Unless explicitly stated otherwise, you can complete the rest of this
+Lab either in the terminal or in the graphical interface as the two are
+equivalent.</p>
 <hr />
 </div>
 <div id="section-sharing-your-work" class="section level2">
 <h2>Sharing your work</h2>
+<p>The repository you have on your machine is a <strong>local</strong>
+repository. The repository(ies) you wish to share your work with are
+called the <strong>remote</strong> repositories.</p>
 <p>When other people update their versions of the repository, you can
 get their work from the <strong>remote</strong> like this:</p>
 <pre><code>git fetch</code></pre>
@@ -358,8 +388,9 @@ versions, leading to a merge <strong>conflict</strong>.</p>
 machine.</p>
 <hr />
 </div>
-<div id="section-exercise-merge-conflict" class="section level2">
-<h2>Exercise: merge conflict!</h2>
+<div id="section-exercise-branches-and-a-merge-conflict"
+class="section level2">
+<h2>Exercise: branches and a merge conflict!</h2>
 <p>A <strong>branch</strong> is a separate version of the repository,
 which has <em>branched</em> off from the <em>main</em> branch (the
 default) at some commit history.</p>
@@ -369,7 +400,8 @@ conflicts.</p>
 <p>We have created a separate branch on the remote that will conflict
 with this version.</p>
 <p>A conflict happens when the same line is edited in two separate
-instances. Run the following command to get the conflicting branch:</p>
+instances. Run the following command to try and merge in the conflicting
+branch from the remote:</p>
 <pre><code>git pull origin conflict</code></pre>
 <p>The file <code>lab11.Rmd</code> will now have a conflict, which will
 be delineated with:</p>
@@ -386,7 +418,7 @@ hunks and editing the text.</strong></p>
 conflict as a combination of the two versions, or simply keep one of
 them.</strong></p>
 <p>There might be multiple such <em>hunks</em> in the file, so make sure
-to resolve all of them. You can find them by search the text for
+to resolve all of them. You can find them by searching the text for
 <code>&lt;&lt;&lt;&lt;</code>, for instance.</p>
 <p>The conflict for a single file is resolved when you:</p>
 <ul>
@@ -398,7 +430,8 @@ to resolve all of them. You can find them by search the text for
 <code>git add lab11.Rmd</code> in the terminal or by clicking the
 appropriate button in the graphical interface.</p></li>
 </ul>
-<pre><code>After resolving the conflicts for all files, you finish the conflict by committing - this is called a **merge commit**.</code></pre>
+<p>After resolving the conflicts for all files, you finish the conflict
+by committing - this is called a <strong>merge commit</strong>.</p>
 <hr />
 </div>
 <div id="section-references" class="section level2">
