@@ -58,17 +58,9 @@ Detailed instructions [here.](https://docs.github.com/en/authentication/connecti
 4.  Enter a password when prompted.
     This is a password you'll need to push to GitHub from this device, so make sure you remember it.
 
-5.  Copy and paste the following command:
+5.  Copy and paste the following command: `eval "$(ssh-agent -s)"`
 
-    ```         
-    eval "$(ssh-agent -s)"
-    ```
-
-6.  Similarly:
-
-```         
-  ssh-add ~/.ssh/id_ed25519`
-```
+6.  Similarly: `` ssh-add ~/.ssh/id_ed25519` ``
 
 ------------------------------------------------------------------------
 
@@ -130,17 +122,20 @@ This will set your name and email for commit messages, among other features.
 
 -   Think of the three stages as a scratchpad, a submission candidate, and a submitted version of a work (homework, project, etc.)
 
+------------------------------------------------------------------------
+## How does git work - illustration
+
 -   To illustrate, below you can see work on this lab tracked in Git as shown in a graphical git client (SourceTree).
     The top pane is the **commit** history, showing **commited changes** accross time (upward direction).
-    The very top line shows uncommited changes, which are all the changes since the last commit.\
+    The very top line shows uncommited changes, which are all the changes since the last commit.
 
-    \
+
     Below on the left, the uncommitted changes are further divided into **staged** files/changes (this document), and unstaged ones.
 
-    \
-    I we were to commit at this point, the staged changes would go "*on the record* "and show up as a new commit above.
-
--   ![](images/clipboard-1600270911.png){width="50%"}
+    
+    If we were to commit at this point, the staged changes would go "*on the record* "and show up as a new commit above.
+    
+    ![](images/clipboard-1600270911.png){width="75%"}
 
 -   Note that you can only share committed changes with others.
 
@@ -164,7 +159,11 @@ When interacting with git, we will use commands like this:
 $ git SUBCOMMAND -o --options ARG1 ARG2 ...
 ```
 
-Some example subcommands will be `pull` to get updates, `log` to see the history, `add` to stage files, and `commit` to commit changes.
+Some example subcommands will be:
+  - `pull` to get updates
+  - `log` to see the history
+  - `add` to stage files
+  - `commit` to commit changes
 
 ------------------------------------------------------------------------
 
@@ -181,13 +180,13 @@ git config --global -l
 If not, the following commands will fill out those fields:
 
 ```         
-$ git config --global user.name "Andrej Leban"
-$ git config --global user.email "leban@umich.edu"
+$ git config --global user.name "Your Name"
+$ git config --global user.email "yourumichid@umich.edu"
 ```
 
 ------------------------------------------------------------------------
 
-### Exercise - modifying this document and committing the changes
+## Exercise - modifying this document and committing the changes
 
 Now go back and fill out your name and email **in the above command in this document (`lab11.Rmd`**).
 
@@ -197,11 +196,11 @@ We wish to commit the changes.
 
 First, you can go to your Git pane and view the changes you made to your local/working copy by right-clicking on the file and selecting *Diff:*
 
-![](images/clipboard-1782323653.png)
+![](images/clipboard-1782323653.png){width=75%}
 
 This will give you a visual display of the **line-by-line** changes you made, with the additions in green and removals in red, like this:
 
-![](images/clipboard-2776243927.png)
+![](images/clipboard-2776243927.png){width=75%}
 
 In the terminal, you can get a text summary of the state of your repository with
 
@@ -247,13 +246,15 @@ We teach the command line interface for git because
 
 But, you can also use a graphical interface in Posit Cloud:
 
-![](images/clipboard-1940696391.png)
+![](images/clipboard-1940696391.png){width=75%}
 
-You can complete the rest of this Lab either in the terminal or in the graphical interface as the two are equivalent.
+Unless explicitly stated otherwise, you can complete the rest of this Lab either in the terminal or in the graphical interface as the two are equivalent.
 
 ------------------------------------------------------------------------
 
 ## Sharing your work
+
+The repository you have on your machine is a **local** repository. The repository(ies) you wish to share your work with are called the **remote** repositories.
 
 When other people update their versions of the repository, you can get their work from the **remote** like this:
 
@@ -284,7 +285,7 @@ Note that the order is always `git pull`, then `git push` if there are changes b
 
 ------------------------------------------------------------------------
 
-## Exercise: merge conflict!
+## Exercise: branches and a merge conflict!
 
 A **branch** is a separate version of the repository, which has *branched* off from the *main* branch (the default) at some commit history.
 
@@ -293,7 +294,7 @@ Much like when pulling remote changes when same files have been modified, **merg
 We have created a separate branch on the remote that will conflict with this version.
 
 A conflict happens when the same line is edited in two separate instances.
-Run the following command to get the conflicting branch:
+Run the following command to try and merge in the  conflicting branch from the remote:
 
 ```         
 git pull origin conflict
@@ -310,19 +311,21 @@ The file `lab11.Rmd` will now have a conflict, which will be delineated with:
 **You can move things between the hunks manually, resolving the conflict as a combination of the two versions, or simply keep one of them.**
 
 There might be multiple such *hunks* in the file, so make sure to resolve all of them.
-You can find them by search the text for `<<<<`, for instance.
+You can find them by searching the text for `<<<<`, for instance.
 
 The conflict for a single file is resolved when you:
 
--    **Finish manually resolving all the hunks**
+-   **Finish manually resolving all the hunks**
 
 -   **Remove the conflict markers shown above** **from the file**
 
 -   **Save the file**
 
--    **Mark the file as resolved**: `git add lab11.Rmd` in the terminal or by clicking the appropriate button in the graphical interface.
+-   **Mark the file as resolved**: `git add lab11.Rmd` in the terminal or by clicking the appropriate button in the graphical interface.
 
-    After resolving the conflicts for all files, you finish the conflict by committing - this is called a **merge commit**.
+
+After resolving the conflicts for all files, you finish the conflict by committing - this is called a **merge commit**.
+
 
 ------------------------------------------------------------------------
 
