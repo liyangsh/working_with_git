@@ -116,7 +116,6 @@ This will set your name and email for commit messages, among other features.
 -   A reasonable analogy: Google Docs with track changes turned on
 -   Useful for groups working together to track changes to the software package and document why changes were made
 
-
 ------------------------------------------------------------------------
 
 ## How does git work?
@@ -141,13 +140,11 @@ This will set your name and email for commit messages, among other features.
     \
     I we were to commit at this point, the staged changes would go "*on the record* "and show up as a new commit above.
 
--   ![](images/clipboard-1600270911.png)
+-   ![](images/clipboard-1600270911.png){width="50%"}
 
--   Note that you can only
+-   Note that you can only share committed changes with others.
 
 -   Git stores the **differences** ("diffs") from the previous version to your new version.
-
--   
 
 -   You can **push** your changes to a shared repository for others to use
 
@@ -156,34 +153,6 @@ This will set your name and email for commit messages, among other features.
 -   If there are **conflicts**, git will let you know and make you resolve them (more on that later.)
 
 -   If you ever need to see what changed, you have the entire **history** of all changes to look at.
-
-------------------------------------------------------------------------
-
-## Command line interfaces
-
-While git has graphical interfaces, we will teach using a **command line interface** (CLI) for git.
-
-In an CLI you have an **interactive** prompt where you type a command.
-It might look something like this:
-
-```         
-$ command -o --options argument1 argument2
-```
-
--   `$` is the prompt
--   `command` is what we want to do (e.g., `git`)
--   Optional flags have `-` or `--` in front and change behavior
--   We can tell what do with `argument1` and `argument2`. Some commands have no arguments.
-
-------------------------------------------------------------------------
-
-## Some basic CLI commands
-
--   `cd`: Change directory.
--   `ls`: List files in current directory
--   `pwd`: Print working directory
--   `mkdir`: Make a new directory (folder)
--   `rm -r`: Recursively delete directories and everything inside (use carefully!)
 
 ------------------------------------------------------------------------
 
@@ -201,12 +170,38 @@ Some example subcommands will be `pull` to get updates, `log` to see the history
 
 ## Let git know who you are
 
+Git requires every commit to be **signed** by an author.
+
+Run the following command to see whether your name and email are configured already:
+
+```         
+git config --global -l
+```
+
+If not, the following commands will fill out those fields:
+
 ```         
 $ git config --global user.name "YOUR NAME"
 $ git config --global user.email "YOUR EMAIL"
 ```
 
 ------------------------------------------------------------------------
+
+`TODO: exercises`
+
+### Exercise
+
+Now go back and fill out your name and email **in the above command in this document (`lab11.Rmd`**).
+
+Then, save the document.
+
+We wish to commit the changes.
+
+First, you can go to your Git pane and view the changes you made to your local/working copy by right-clicking on the file and selecting *Diff:*
+
+![](images/clipboard-1782323653.png)
+
+This will give you a visual display of the **line-by-line** changes you made, with the additions in green and removals in red.
 
 ## Getting a copy of the Stats 306 Repository
 

@@ -197,74 +197,56 @@ access:</p>
 <p><img src="images/clipboard-3826366170.png" style="width:75.0%" /></p>
 <p>This will set your name and email for commit messages, among other
 features.</p>
-<table>
-<colgroup>
-<col width="100%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td>## Git basics - review | - A <strong>version control system</strong>
-manages changes from multiple sources simultaneously. - A reasonable
-analogy: Google Docs with track changes turned on - Useful for groups
-working together to track changes to the software package and document
-why changes were made |</td>
-</tr>
-<tr class="even">
-<td>## How does git work?</td>
-</tr>
-<tr class="odd">
-<td>- Creates a <strong>repository</strong> (a hidden directory/folder)
-to information about the history of files</td>
-</tr>
-<tr class="even">
-<td>- In essence, files can be in three “buckets”:</td>
-</tr>
-<tr class="odd">
-<td>- When you make changes, they are saved on the disk but not yet
-registered in git: this is your <strong>working tree</strong> - If you
-like the changes, you can add them (or a portion of them) to the
-<strong>staging area,</strong> i.e. the changes are
-<strong>staged</strong> - When you like your staging area, you
-<strong>commit</strong> your changes, making a <strong>git
-commit</strong>.</td>
-</tr>
-<tr class="even">
-<td>- Think of the three stages as a scratchpad, a submission candidate,
-and a submitted version of a work (homework, project, etc.)</td>
-</tr>
-<tr class="odd">
-<td>- To illustrate, below you can see work on this lab tracked in Git
+<hr />
+</div>
+<div id="section-git-basics---review" class="section level2">
+<h2>Git basics - review</h2>
+<ul>
+<li>A <strong>version control system</strong> manages changes from
+multiple sources simultaneously.</li>
+<li>A reasonable analogy: Google Docs with track changes turned on</li>
+<li>Useful for groups working together to track changes to the software
+package and document why changes were made</li>
+</ul>
+<hr />
+</div>
+<div id="section-how-does-git-work" class="section level2">
+<h2>How does git work?</h2>
+<ul>
+<li><p>Creates a <strong>repository</strong> (a hidden directory/folder)
+to information about the history of files</p></li>
+<li><p>In essence, files can be in three “buckets”:</p>
+<ul>
+<li>When you make changes, they are saved on the disk but not yet
+registered in git: this is your <strong>working tree</strong></li>
+<li>If you like the changes, you can add them (or a portion of them) to
+the <strong>staging area,</strong> i.e. the changes are
+<strong>staged</strong></li>
+<li>When you like your staging area, you <strong>commit</strong> your
+changes, making a <strong>git commit</strong>.</li>
+</ul></li>
+<li><p>Think of the three stages as a scratchpad, a submission
+candidate, and a submitted version of a work (homework, project,
+etc.)</p></li>
+<li><p>To illustrate, below you can see work on this lab tracked in Git
 as shown in a graphical git client (SourceTree). The top pane is the
 <strong>commit</strong> history, showing <strong>commited
 changes</strong> accross time (upward direction). The very top line
 shows uncommited changes, which are all the changes since the last
 commit.<br />
-</td>
-</tr>
-<tr class="even">
-<td><br />
+</p>
+<p><br />
 Below on the left, the uncommitted changes are further divided into
 <strong>staged</strong> files/changes (this document), and unstaged
-ones.</td>
-</tr>
-<tr class="odd">
-<td><br />
+ones.</p>
+<p><br />
 I we were to commit at this point, the staged changes would go “<em>on
-the record</em>”and show up as a new commit above.</td>
-</tr>
-<tr class="even">
-<td>- <img src="images/clipboard-1600270911.png" /></td>
-</tr>
-<tr class="odd">
-<td>- Note that you can only</td>
-</tr>
-<tr class="even">
-<td>- Git stores the <strong>differences</strong> (“diffs”) from the
-previous version to your new version.</td>
-</tr>
-</tbody>
-</table>
-<ul>
+the record</em>”and show up as a new commit above.</p></li>
+<li><p><img src="images/clipboard-1600270911.png" /></p></li>
+<li><p>Note that you can only</p></li>
+<li><p>Git stores the <strong>differences</strong> (“diffs”) from the
+previous version to your new version.</p></li>
+<li></li>
 <li><p>You can <strong>push</strong> your changes to a shared repository
 for others to use</p></li>
 <li><p>You can <strong>pull</strong> from a shared repository and
