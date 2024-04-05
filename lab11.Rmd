@@ -1,6 +1,6 @@
 ---
 title: "Stats 306: Lab 11"
-author: "Your Name"
+author: "Liyang Shao"
 output: 
   learnr::tutorial:
     progressive: true
